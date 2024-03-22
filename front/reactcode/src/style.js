@@ -21,6 +21,9 @@ export default createGlobalStyle`
     .responsiveLoginPage{
         display: none;
     }
+    .responsiveHeader{
+        display: none;
+    }
 
 
 
@@ -39,6 +42,12 @@ export default createGlobalStyle`
         }
         .loginPage{
             display: none;
+        }
+        .header{
+            display: none;
+        }
+        .responsiveHeader{
+            display: inline;
         }
     }
 

@@ -8,7 +8,7 @@ const AuthPrivate = ({ path, component }) => {
 
     if (isAuthenticated) {
         return <Routes>
-            <Route path={path} component={component} />
+            <Route path={path} element={component}></Route>
         </Routes>
 
     } else if (!isAuthenticated && location.pathname === "/") {

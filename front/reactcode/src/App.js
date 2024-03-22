@@ -15,11 +15,12 @@ function App() {
         main: "#D9D9D9"
       },
       background: {
+        main: "#FFFFFF",
         default: "#FFFFFF"
       },
       text: {
         primary: "#FFFFFF",
-        secondary: "#5CBBFF"
+        secondary: "#D9D9D9"
       }
     },
     typography: {

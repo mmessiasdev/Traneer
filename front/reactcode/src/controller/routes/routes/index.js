@@ -3,10 +3,10 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import Style from '../../../style';
 import { useState } from 'react';
 import AuthApi from '../../auth/authApi';
-import HomePage from '../../../view/homepage';
 import AuthPrivate from '../privateroutes/authRoute';
 import AuthContext from '../../auth/context/authContext';
 import LoginPage from '../../../view/pages/login';
+import HomePage from '../../../view/pages/homepage';
 
 function RoutesPage() {
     const [isAuthenticated, setIsAuthenticated] = useState(AuthApi.isAuthenticated)
@@ -19,9 +19,9 @@ function RoutesPage() {
                 <Style />
                 <Router>
                     <Routes>
-                        <Route path='/' element={<LoginPage/>} />
+                        <Route path='/' element={<LoginPage />} />
                     </Routes>
-                    <AuthPrivate path="/hp" component={<HomePage />} />
+                    <AuthPrivate path="/home" component={<HomePage />}></AuthPrivate>
 
                 </Router>
 

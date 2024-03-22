@@ -33,7 +33,7 @@ const LoginComponent = () => {
         try {
             await authApi.authenticate(credentials);
             setIsAuthenticated(true);
-            history('/hp');
+            history('/home');
         } catch (error) {
             console.log(error);
         }
