@@ -5,6 +5,7 @@ import Banner from "../../components/banner";
 import ResponsiveHomePage from "./responsive";
 import Categories from "../../components/categories";
 import ThumbList from "../../components/thumblist";
+import Footer from "../../components/footer";
 
 
 const HomePage = () => {
@@ -37,10 +38,12 @@ const HomePage = () => {
             <Banner />
           </Box>
         </div>
-        <Box sx={{ padding: "0px 150px" }}>
+        <Box sx={{ padding: "100px 150px" }}>
           <Categories />
           <ThumbList/>
         </Box>
+        <Footer/>
+        
       </div>
       <ResponsiveHomePage />
     </>

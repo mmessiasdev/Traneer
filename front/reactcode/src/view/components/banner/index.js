@@ -14,7 +14,7 @@ const Banner = () => {
                 <Box sx={{width:"50px"}}/>
                 <Box sx={{ width: "400px", height: "235px", overflow: "hidden", borderRadius: "45px", display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <img src="https://jornaldecorrentina.com.br/wp-content/uploads/2023/05/0101.jpg" />
-                    <PlayArrow sx={{position:"absolute", fontSize:"100px"}}/>
+                    <PlayArrow color="background" sx={{position:"absolute", fontSize:"50px"}}/>
                 </Box>
         </Box>
     </>

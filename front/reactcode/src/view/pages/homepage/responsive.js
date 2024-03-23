@@ -4,6 +4,8 @@ import ResponsiveHeader from "../../components/header/responsive";
 import Banner from "../../components/banner";
 import ResponsiveBanner from "../../components/banner/responsive";
 import Categories from "../../components/categories";
+import ThumbList from "../../components/thumblist";
+import Footer from "../../components/footer";
 
 
 const ResponsiveHomePage = () => {
@@ -13,7 +15,9 @@ const ResponsiveHomePage = () => {
       <Box sx={{ width: "100%", padding: "100px 30px" }}>
         <ResponsiveBanner />
         <Categories/>
+        <ThumbList/>
       </Box>
+      <Footer/>
 
     </div>
   )

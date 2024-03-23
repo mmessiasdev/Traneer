@@ -13,7 +13,7 @@ const ResponsiveBanner = () => {
             <Box sx={{ height: "100px" }} />
             <Box sx={{ width: "600px", height: "330px", overflow: "hidden", borderRadius: "45px", display: "flex", justifyContent: "center", alignItems: "center" }}>
                 <img src="https://jornaldecorrentina.com.br/wp-content/uploads/2023/05/0101.jpg" />
-                <PlayArrow sx={{ position: "absolute", fontSize: "100px" }} />
+                <PlayArrow color="background" sx={{ position: "absolute", fontSize: "50px" }} />
             </Box>
 
         </Box>
