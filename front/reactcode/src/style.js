@@ -21,8 +21,8 @@ export default createGlobalStyle`
     .responsiveLoginPage{
         display: none;
     }
-    .responsiveHeader{
-        display: none;
+    .responsiveHomePage{
+        display: none
     }
 
 
@@ -43,10 +43,10 @@ export default createGlobalStyle`
         .loginPage{
             display: none;
         }
-        .header{
+        .homePage{
             display: none;
         }
-        .responsiveHeader{
+        .responsiveHomePage{
             display: inline;
         }
     }

@@ -3,7 +3,7 @@ import { Box, Button, Divider, Stack, Typography } from "@mui/material";
 const Header = () => {
     return (
         <div className="header">
-            <Box sx={{ width: "100%", bgcolor: "primary.main", padding: "15px 150px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+            <Box sx={{ width: "100%", bgcolor: "primary.main", padding: "15px 150px", display: "flex", alignItems: "center", justifyContent: "space-between", position:"fixed" }}>
                 <Box sx={{ height: "55px", display: "flex" }}>
                     <img src="https://connectba.com.br/core/views/860ad119c2/assets/img/logo.png" />
                 </Box>
