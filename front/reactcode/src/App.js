@@ -16,6 +16,7 @@ function App() {
       },
       background: {
         main: "#FFFFFF",
+        dark: "#000000",
         default: "#FFFFFF"
       },
       text: {

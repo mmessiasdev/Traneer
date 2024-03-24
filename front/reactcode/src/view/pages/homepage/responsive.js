@@ -12,12 +12,13 @@ const ResponsiveHomePage = () => {
   return (
     <div className="responsiveHomePage">
       <ResponsiveHeader />
+      <ResponsiveBanner />
+
       <Box sx={{ width: "100%", padding: "100px 30px" }}>
-        <ResponsiveBanner />
-        <Categories/>
-        <ThumbList/>
+        <Categories />
+        <ThumbList />
       </Box>
-      <Footer/>
+      <Footer />
 
     </div>
   )

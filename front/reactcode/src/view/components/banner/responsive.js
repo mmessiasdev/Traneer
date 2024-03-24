@@ -3,7 +3,7 @@ import { Box, Typography } from "@mui/material";
 
 const ResponsiveBanner = () => {
     return <>
-        <Box sx={{ width: "100%", display: "flex", flexDirection:"column", justifyContent: "center", alignItems:"center" }}>
+        <Box sx={{ width: "100%", display: "flex", flexDirection:"column", justifyContent: "center", alignItems:"center", marginTop:"100px", padding:"0px 30px"}}>
             <Box sx={{ alignItems: "start", overflow: "hidden", width:"100%" }}>
                 <Typography variant="h1">Conheça a Connect!</Typography>
                 <Box sx={{ height: "15px" }} />
