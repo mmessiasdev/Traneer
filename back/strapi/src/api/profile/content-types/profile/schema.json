@@ -25,6 +25,18 @@
     },
     "email": {
       "type": "string"
+    },
+    "corporation": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::corporation.corporation",
+      "inversedBy": "profiles"
+    },
+    "courses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::course.course",
+      "mappedBy": "profile"
     }
   }
 }

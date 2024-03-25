@@ -19,7 +19,6 @@ module.exports = createCoreController('api::profile.profile', ({Strapi}) => ({
                     lname: ctx.request.body.lname,
                     email: user.email,
                     user: user.id,
-                    age: ctx.request.body.age
                 }
             });
             return result;
@@ -42,8 +41,8 @@ module.exports = createCoreController('api::profile.profile', ({Strapi}) => ({
                     }
                 },
                 populate: {
-                    posters: true,
-                    chunk: true,
+                    courses: true,
+                    corporation: true,
                 }
             });
             return result;
