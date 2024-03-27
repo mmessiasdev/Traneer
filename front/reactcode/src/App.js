@@ -1,7 +1,13 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import RoutesPage from './controller/routes/routes';
 
-function App() {  
+function App() { 
+
+  // xs 0
+  // sm 600
+  // md 900
+  // lg 1200
+  // xl 1536
 
   const Theme = createTheme({
     palette: {

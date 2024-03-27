@@ -1,11 +1,10 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import Header from "../../components/header";
-import ResponsiveHeader from "../../components/header/responsive";
 import Banner from "../../components/banner";
-import ResponsiveHomePage from "./responsive";
 import Categories from "../../components/categories";
-import ThumbList from "../../components/thumblist";
 import Footer from "../../components/footer";
+import ThumbCard from "../../components/thumbcard";
+import DefaultTitle from "../../components/title";
 
 
 const HomePage = () => {
@@ -34,18 +33,26 @@ const HomePage = () => {
         <Header />
         <div style={styles.paperContainer}>
           <img style={styles.wallpaperImage} src="https://jornaldecorrentina.com.br/wp-content/uploads/2023/05/0101.jpg" />
-          <Box sx={{ width: "100%", padding: "100px 150px" }}>
+          <Box sx={{ width: "100%", padding: { md: "100px 150px", xs: "100px 30px" } }}>
             <Banner />
           </Box>
         </div>
-        <Box sx={{ padding: "100px 150px" }}>
+        <Box sx={{ padding: { md: "100px 150px", xs: "100px 30px" } }}>
+          <DefaultTitle text="Categorias" />
+          <Box height="50px" />
           <Categories />
-          <ThumbList/>
+          <DefaultTitle text="Treinamentos Essenciais" />
+          <Grid container sx={{ justifyContent: { lg: "start", xs: "center" } }}>
+            <ThumbCard />
+            <ThumbCard />
+            <ThumbCard />
+            <ThumbCard />
+            <ThumbCard />
+          </Grid>
         </Box>
-        <Footer/>
-        
+        <Footer />
+
       </div>
-      <ResponsiveHomePage />
     </>
   )
 }

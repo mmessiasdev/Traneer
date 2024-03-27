@@ -18,45 +18,45 @@ export default createGlobalStyle`
 
     
 
-    .responsiveLoginPage{
-        display: none;
-    }
-    .responsiveHomePage{
-        display: none
-    }
+    // .responsiveLoginPage{
+    //     display: none;
+    // }
+    // .responsiveHomePage{
+    //     display: none
+    // }
 
 
 
 
-    /* ---- RESPONSIVE ---- */
+    // /* ---- RESPONSIVE ---- */
 
 
 
-    @media (max-width: 960px) {
+    // @media (max-width: 960px) {
 
-    }
+    // }
 
-    @media (max-width: 880px) {
-        .responsiveLoginPage{
-            display: flex;
-        }
-        .loginPage{
-            display: none;
-        }
-        .homePage{
-            display: none;
-        }
-        .responsiveHomePage{
-            display: inline;
-        }
-    }
+    // @media (max-width: 880px) {
+    //     .responsiveLoginPage{
+    //         display: flex;
+    //     }
+    //     .loginPage{
+    //         display: none;
+    //     }
+    //     .homePage{
+    //         display: none;
+    //     }
+    //     .responsiveHomePage{
+    //         display: inline;
+    //     }
+    // }
 
-    @media (max-width: 600px) {
-        .responsiveLoginPage{
-            width: 100%;
-        }
+    // @media (max-width: 600px) {
+    //     .responsiveLoginPage{
+    //         width: 100%;
+    //     }
 
-    }
+    // }
 
 
 
