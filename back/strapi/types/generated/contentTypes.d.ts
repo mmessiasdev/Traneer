@@ -836,6 +836,7 @@ export interface ApiCorporationCorporation extends Schema.CollectionType {
     singularName: 'corporation';
     pluralName: 'corporations';
     displayName: 'Corporation';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -859,6 +860,7 @@ export interface ApiCorporationCorporation extends Schema.CollectionType {
       'oneToMany',
       'api::course.course'
     >;
+    banner: Attribute.Component<'shared.banner'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

@@ -5,18 +5,36 @@ import Categories from "../../components/categories";
 import Footer from "../../components/footer";
 import ThumbCard from "../../components/thumbcard";
 import DefaultTitle from "../../components/title";
+import { useEffect, useState } from "react";
+import fetchCorporationBanner from "../../../controller/api/corporation/banner";
+import axios from "axios";
 
 
 const HomePage = () => {
+
+  const [data, setData] = useState(null);
+  const token = localStorage.getItem('authToken');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${process.env.REACT_APP_BASEURL}/api/corporations/1?populate=*`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        });
+        setData(response.data);
+      } catch (error) {
+        console.error('Erro ao buscar dados da API:', error);
+      }
+    };
+    
+    fetchData();
+  }, []);
+
+
   const styles = {
-    paperContainer: {
-      width: "100%",
-      height: "600px",
-      justifyContent: "center",
-      display: "flex",
-      alignItems: "center",
-      overflow: "hidden",
-    },
     wallpaperImage: {
       position: "absolute",
       width: "100%",
@@ -32,12 +50,18 @@ const HomePage = () => {
       <div className="homePage">
         <Header />
         <div style={styles.paperContainer}>
-          <img style={styles.wallpaperImage} src="https://jornaldecorrentina.com.br/wp-content/uploads/2023/05/0101.jpg" />
-          <Box sx={{ width: "100%", padding: { md: "100px 150px", xs: "100px 30px" } }}>
-            <Banner />
-          </Box>
+          {data ? (
+            <div>
+              <img style={styles.wallpaperImage} src={data.data.attributes.banner.bannerurl} alt={data.data.attributes.banner.bannertitle} />
+              <Box sx={{ width: "100%", padding: { md: "100px 150px", xs: "100px 10px" } }}>
+                <Banner bannertitle={data.data.attributes.banner.bannertitle} bannerdesc={data.data.attributes.banner.bannerdesc} />
+              </Box>
+            </div>
+          ) : (
+            <p>Carregando...</p>
+          )}
         </div>
-        <Box sx={{ padding: { md: "100px 150px", xs: "100px 30px" } }}>
+        <Box sx={{ padding: { md: "50px 150px", xs: "15px 10px" } }}>
           <DefaultTitle text="Categorias" />
           <Box height="50px" />
           <Categories />

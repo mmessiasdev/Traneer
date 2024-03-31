@@ -67,8 +67,8 @@ const ResponsiveHeader = () => {
     }
 
     return (
-        <div className='responsiveHeader'>
-            <Box sx={{ width: "100%", bgcolor: "primary.main", padding: "15px 25px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div>
+            <Box sx={{ width: "100%", bgcolor: "primary.main", padding: "15px 15px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                 <Box sx={{ height: "55px", display: "flex" }}>
                     <img src="https://connectba.com.br/core/views/860ad119c2/assets/img/logo.png" />
                 </Box>

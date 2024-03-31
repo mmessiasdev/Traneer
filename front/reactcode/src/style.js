@@ -16,15 +16,6 @@ export default createGlobalStyle`
         overflow-x: hidden;
     }
 
-    
-
-    // .responsiveLoginPage{
-    //     display: none;
-    // }
-    // .responsiveHomePage{
-    //     display: none
-    // }
-
 
 
 

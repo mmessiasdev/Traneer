@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_testes",
+  "info": {
+    "displayName": "teste",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "banner": {
+      "type": "text"
+    },
+    "bannerTitle": {
+      "type": "string"
+    },
+    "bannerDesc": {
+      "type": "text"
+    }
+  }
+}

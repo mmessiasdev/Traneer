@@ -1,5 +1,19 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface SharedBanner extends Schema.Component {
+  collectionName: 'components_shared_banners';
+  info: {
+    displayName: 'banner';
+    icon: 'dashboard';
+  };
+  attributes: {
+    bannerurl: Attribute.Text;
+    bannertitle: Attribute.String;
+    bannerdesc: Attribute.Text;
+    videoid: Attribute.String;
+  };
+}
+
 export interface SharedMetaSocial extends Schema.Component {
   collectionName: 'components_shared_meta_socials';
   info: {
@@ -51,11 +65,54 @@ export interface SharedSeo extends Schema.Component {
   };
 }
 
+export interface SharedTesteD extends Schema.Component {
+  collectionName: 'components_shared_teste_ds';
+  info: {
+    displayName: 'testeD';
+    icon: 'apps';
+  };
+  attributes: {
+    teste: Attribute.Text;
+    banner: Attribute.Text;
+    bannerDesc: Attribute.String;
+    bannerTitle: Attribute.String;
+    text: Attribute.String;
+  };
+}
+
+export interface SharedTesteDyna extends Schema.Component {
+  collectionName: 'components_shared_teste_dynas';
+  info: {
+    displayName: 'testeDyna';
+    icon: 'apps';
+  };
+  attributes: {
+    banner: Attribute.String;
+  };
+}
+
+export interface SharedTeste extends Schema.Component {
+  collectionName: 'components_shared_testes';
+  info: {
+    displayName: 'teste';
+    icon: 'apps';
+  };
+  attributes: {
+    banner: Attribute.Text;
+    bannerTitle: Attribute.String;
+    bannerDesc: Attribute.Text;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'shared.banner': SharedBanner;
       'shared.meta-social': SharedMetaSocial;
       'shared.seo': SharedSeo;
+      'shared.teste-d': SharedTesteD;
+      'shared.teste-dyna': SharedTesteDyna;
+      'shared.teste': SharedTeste;
     }
   }
 }
