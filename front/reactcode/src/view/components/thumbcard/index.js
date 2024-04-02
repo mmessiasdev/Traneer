@@ -1,7 +1,6 @@
-import { Image } from "@mui/icons-material";
 import { Box, Grid, Paper, Typography } from "@mui/material";
 
-const ThumbCard = () => {
+const ThumbCard = ({title}) => {
 
     return <>
         <Grid item sx={{ width: {sm: "425px", xs: "280px"}, height: "300px", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", margin: {sm: "25px", xs: "5px"}}}>
@@ -9,7 +8,7 @@ const ThumbCard = () => {
                 <Box width={{sm: "400px", xs: "250px"}} component="img" src="https://img.youtube.com/vi/8T9l-pSozjM/maxresdefault.jpg"/>
             </Paper>
             <Box sx={{ height: "15px" }} />
-            <Typography width={{sm: "400px", xs: "250px"}} variant="h3">Teste asdas sa dsa dsd ascasasdda sd asd asd asd as</Typography>
+            <Typography width={{sm: "400px", xs: "250px"}} variant="h3">{title}</Typography>
         </Grid>
 
     </>

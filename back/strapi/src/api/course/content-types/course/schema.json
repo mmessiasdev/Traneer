@@ -4,7 +4,8 @@
   "info": {
     "singularName": "course",
     "pluralName": "courses",
-    "displayName": "Course"
+    "displayName": "Course",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -34,6 +35,12 @@
       "relation": "manyToOne",
       "target": "api::corporation.corporation",
       "inversedBy": "courses"
+    },
+    "playlistid": {
+      "type": "text"
+    },
+    "thumb": {
+      "type": "string"
     }
   }
 }

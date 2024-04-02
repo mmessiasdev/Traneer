@@ -2,7 +2,7 @@ import { PlayArrow } from "@mui/icons-material";
 import { Box, Stack, Typography } from "@mui/material";
 import ThumbCard from "../thumbcard";
 
-const Banner = ({bannerdesc, bannertitle}) => {
+const Banner = ({bannerdesc, bannertitle, videotitle}) => {
 
     return <>
         <Stack direction={{ xs: "column", lg:"row"}} sx={{ width: "100%", display:"flex", alignItems: "center", justifyContent:"space-evenly"}}>
@@ -11,7 +11,7 @@ const Banner = ({bannerdesc, bannertitle}) => {
                     <Box sx={{height:"15px"}}/>
                     <Typography variant="h3">{bannerdesc}</Typography>
                 </Box>
-                <ThumbCard/>
+                <ThumbCard title={videotitle}/>
         </Stack>
     </>
 }
