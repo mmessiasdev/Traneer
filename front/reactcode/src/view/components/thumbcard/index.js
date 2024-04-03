@@ -1,11 +1,11 @@
 import { Box, Grid, Paper, Typography } from "@mui/material";
 
-const ThumbCard = ({title}) => {
+const ThumbCard = ({title, thumburl}) => {
 
     return <>
-        <Grid item sx={{ width: {sm: "425px", xs: "280px"}, height: "300px", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", margin: {sm: "25px", xs: "5px"}}}>
+        <Grid item sx={{cursor: "pointer", width: {sm: "425px", xs: "280px"}, height: "300px", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", margin: {sm: "25px", xs: "5px"}}}>
             <Paper elevation={10} sx={{ display: "flex", justifyContent: "center", alignItems: "center", overflow: "hidden", borderRadius: "10px" }}>
-                <Box width={{sm: "400px", xs: "250px"}} component="img" src="https://img.youtube.com/vi/8T9l-pSozjM/maxresdefault.jpg"/>
+                <Box width={{sm: "400px", xs: "250px"}} component="img" src={thumburl}/>
             </Paper>
             <Box sx={{ height: "15px" }} />
             <Typography width={{sm: "400px", xs: "250px"}} variant="h3">{title}</Typography>

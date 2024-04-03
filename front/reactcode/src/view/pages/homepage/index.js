@@ -12,13 +12,15 @@ import axios from "axios";
 
 const HomePage = () => {
 
-  const [data, setData] = useState(null);
   const token = localStorage.getItem('authToken');
+
+
+  const [corporation, setCorporation] = useState(null);
   const [initalVideo, setInitialVideo] = useState(null);
   const [initialYoutubePlaylist, setInitialYoutubePlaylist] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchCorporation = async () => {
       try {
         const response = await axios.get(`${process.env.REACT_APP_BASEURL}/api/corporations/1?populate=*`, {
           headers: {
@@ -26,18 +28,18 @@ const HomePage = () => {
             'Content-Type': 'application/json'
           }
         });
-        setData(response.data);
+        setCorporation(response.data);
       } catch (error) {
         console.error('Erro ao buscar dados da API:', error);
       }
     };
     
-    fetchData();
+    fetchCorporation();
   }, []);
 
 
   useEffect(() => {
-    const fetchDataInitialVideo = async () => {
+    const fetchCorporationInitialVideo = async () => {
       try {
         const response = await axios.get(`${process.env.REACT_APP_BASEURL}/api/courses/2?populate=*`, {
           headers: {
@@ -51,27 +53,30 @@ const HomePage = () => {
       }
     };
     
-    fetchDataInitialVideo();
+    fetchCorporationInitialVideo();
   }, []);
 
   useEffect(() => {
     const fetchYoutubePlaylist = async () => {
       try {
-        const response = await axios.get(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${initalVideo.data.attributes.playlistid}&key=${process.env.REACT_APP_YOUTUBEKEY}&maxResults=50&contentDetails`, {
+        const response = await axios.get(`https://www.googleapis.com/youtube/v3/playlists?part=snippet&id=${initalVideo.data.attributes.playlistid}&key=${process.env.REACT_APP_YOUTUBEKEY}`, {
           headers: {
             'Content-Type': 'application/json'
           }
         });
-        setInitialYoutubePlaylist(response.data);
+        setInitialYoutubePlaylist(response.data.items[0].snippet);
       } catch (error) {
         console.error('Erro ao buscar dados da API:', error);
       }
     };
-    
     fetchYoutubePlaylist();
   }, []);
 
-  console.log('Teste', initialYoutubePlaylist);
+  console.log('Teste', initialYoutubePlaylist)
+  console.log('Teste T', initalVideo.data.attributes.playlistid)
+
+
+
 
   
 
@@ -93,11 +98,11 @@ const HomePage = () => {
       <div className="homePage">
         <Header />
         <div style={styles.paperContainer}>
-          {data ? (
+          {corporation ? (
             <div>
-              <img style={styles.wallpaperImage} src={data.data.attributes.banner.bannerurl} alt={data.data.attributes.banner.bannertitle} />
+              <img style={styles.wallpaperImage} src={corporation.data.attributes.banner.bannerurl} alt={corporation.data.attributes.banner.bannertitle} />
               <Box sx={{ width: "100%", padding: { md: "100px 150px", xs: "100px 10px" } }}>
-                <Banner bannertitle={data.data.attributes.banner.bannertitle} bannerdesc={data.data.attributes.banner.bannerdesc} videotitle={initalVideo.data.attributes.title}/>
+                <Banner bannertitle={corporation.data.attributes.banner.bannertitle} bannerdesc={corporation.data.attributes.banner.bannerdesc} videotitle={initialYoutubePlaylist.title} thumburl={initialYoutubePlaylist.thumbnails.maxres.url}/>
               </Box>
             </div>
           ) : (
