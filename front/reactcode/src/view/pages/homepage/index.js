@@ -21,59 +21,45 @@ const HomePage = () => {
   const [dataLoaded, setDataLoaded] = useState(false); // Estado para controlar se os dados foram carregados
 
 
-  var playlistId = initialVideo ? initialVideo.attributes.playlistid : "";
 
 
   useEffect(() => {
-    const fetchCorporation = async () => {
+    const fetchData = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_BASEURL}/api/corporations/1?populate=*`, {
+        const corporationResponse = await axios.get(`${process.env.REACT_APP_BASEURL}/api/corporations/1?populate=*`, {
           headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json'
           }
         });
-        setCorporation(response.data);
-      } catch (error) {
-        console.error('Erro ao buscar dados da API:', error);
-      }
-    };
+        setCorporation(corporationResponse.data);
 
-    const fetchInitialVideo = async () => {
-      try {
-        const response = await axios.get(`${process.env.REACT_APP_BASEURL}/api/courses/2?populate=*`, {
+        const initialVideoResponse = await axios.get(`${process.env.REACT_APP_BASEURL}/api/courses/2?populate=*`, {
           headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json'
           }
         });
-        setInitialVideo(response.data.data);
+        setInitialVideo(initialVideoResponse.data.data);
+
+        // Definindo o valor de playlistId após receber a resposta da API
+        const playlistId = initialVideoResponse.data.data.attributes.playlistid;
+
+        const youtubePlaylistResponse = await axios.get(`https://www.googleapis.com/youtube/v3/playlists?part=snippet&id=${playlistId}&key=${process.env.REACT_APP_YOUTUBEKEY}`, {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        setInitialYoutubePlaylist(youtubePlaylistResponse.data.items[0].snippet);
+        
+        setDataLoaded(true); // Marcar que os dados foram carregados com sucesso
       } catch (error) {
         console.error('Erro ao buscar dados da API:', error);
       }
     };
 
-    const fetchYoutubePlaylist = async () => {
-      try {
-        const response = await axios.get(`https://www.googleapis.com/youtube/v3/playlists?part=snippet&id=${playlistId}&key=${process.env.REACT_APP_YOUTUBEKEY}`, {
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        });
-        setInitialYoutubePlaylist(response.data.items[0].snippet);
-        console.log(response.data.items[0].snippet);
-      } catch (error) {
-        console.error('Erro ao buscar dados da Youtube API:', error);
-      }
-    };
-
-    
-
-    fetchCorporation();
-    fetchInitialVideo();
-    fetchYoutubePlaylist();
-  }, [token]);
-
+    fetchData();
+  }, [token]); 
 
 
 
