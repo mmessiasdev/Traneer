@@ -11,43 +11,14 @@ export default createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         font-family: 'Montserrat';
+        text-decoration: none;
+
     }
     div{
         overflow-x: hidden;
     }
 
 
-
-
-    // /* ---- RESPONSIVE ---- */
-
-
-
-    // @media (max-width: 960px) {
-
-    // }
-
-    // @media (max-width: 880px) {
-    //     .responsiveLoginPage{
-    //         display: flex;
-    //     }
-    //     .loginPage{
-    //         display: none;
-    //     }
-    //     .homePage{
-    //         display: none;
-    //     }
-    //     .responsiveHomePage{
-    //         display: inline;
-    //     }
-    // }
-
-    // @media (max-width: 600px) {
-    //     .responsiveLoginPage{
-    //         width: 100%;
-    //     }
-
-    // }
 
 
 

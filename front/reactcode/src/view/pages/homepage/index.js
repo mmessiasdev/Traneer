@@ -6,13 +6,13 @@ import Footer from "../../components/footer";
 import ThumbCard from "../../components/thumbcard";
 import DefaultTitle from "../../components/title";
 import { useEffect, useState } from "react";
-import fetchCorporationBanner from "../../../controller/api/corporation/banner";
 import axios from "axios";
 
 
 const HomePage = () => {
 
   const token = localStorage.getItem('authToken');
+
 
 
   const [corporation, setCorporation] = useState(null);
@@ -65,12 +65,6 @@ const HomePage = () => {
 
 
 
-
-
-
-
-
-
   const styles = {
     wallpaperImage: {
       position: "absolute",
@@ -87,11 +81,11 @@ const HomePage = () => {
       <div className="homePage">
         <Header />
         <div style={styles.paperContainer}>
-          {corporation ? (
+          {dataLoaded ? (
             <div>
               <img style={styles.wallpaperImage} src={corporation.data.attributes.banner.bannerurl} alt={corporation.data.attributes.banner.bannertitle} />
               <Box sx={{ width: "100%", padding: { md: "100px 150px", xs: "100px 10px" } }}>
-                <Banner bannertitle={corporation.data.attributes.banner.bannertitle} bannerdesc={corporation.data.attributes.banner.bannerdesc} videotitle={initialYoutubePlaylist ? initialYoutubePlaylist.title : ""} thumburl={initialYoutubePlaylist ? initialYoutubePlaylist.thumbnails.maxres.url : ""} />
+                <Banner linkto={initialVideo.id} bannertitle={corporation.data.attributes.banner.bannertitle} bannerdesc={corporation.data.attributes.banner.bannerdesc} videotitle={initialYoutubePlaylist ? initialYoutubePlaylist.title : ""} thumburl={initialYoutubePlaylist ? initialYoutubePlaylist.thumbnails.maxres.url : ""} />
               </Box>
             </div>
           ) : (

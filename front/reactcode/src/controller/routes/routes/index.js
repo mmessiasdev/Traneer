@@ -8,6 +8,7 @@ import AuthContext from '../../auth/context/authContext';
 import LoginPage from '../../../view/pages/login';
 import HomePage from '../../../view/pages/homepage';
 import Profile from '../../../view/pages/profile';
+import Course from '../../../view/pages/course';
 
 function RoutesPage() {
     const [isAuthenticated, setIsAuthenticated] = useState(AuthApi.isAuthenticated)
@@ -24,6 +25,7 @@ function RoutesPage() {
                     </Routes>
                     <AuthPrivate path="/home" component={<HomePage />}/>
                     <AuthPrivate path="/profile" component={<Profile/>} />
+                    <AuthPrivate path="/courses/:id" component={<Course/>} />"
 
                 </Router>
 
