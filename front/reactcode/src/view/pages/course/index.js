@@ -4,7 +4,9 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Header from "../../components/header";
 import DefaultTitle from "../../components/title";
-import { Image } from "@mui/icons-material";
+import YouTube from 'react-youtube';
+import Button from '@mui/material/Button';
+
 
 const Course = () => {
     const token = localStorage.getItem('authToken');
@@ -14,6 +16,7 @@ const Course = () => {
     const [dataLoaded, setDataLoaded] = useState(false);
     const [initialYoutubePlaylist, setInitialYoutubePlaylist] = useState(null);
     const [playlistItems, setPlaylistItems] = useState(null);
+    const [videoId, setVideoId] = useState(null);
 
     const styles = {
         wallpaperImage: {
@@ -60,6 +63,12 @@ const Course = () => {
         fetchData();
     }, [token]);
 
+    const handleVideoChange = (newVideoId) => {
+        setVideoId(newVideoId);
+    };
+
+
+
     return <div>
         <Header />
 
@@ -70,16 +79,22 @@ const Course = () => {
                         <DefaultTitle text={initialVideo.attributes.title} />
                         <Box display="flex" flexDirection="flex" width="100%" marginTop="50px">
                             <Box display="flex" width="100%" height="500px" alignItems="start" justifyContent="start" overflow="hidden">
-                                <img style={styles.wallpaperImage} src={initialYoutubePlaylist ? initialYoutubePlaylist.thumbnails.maxres.url : ""} />
+                                {/* <img style={styles.wallpaperImage} src={initialYoutubePlaylist ? initialYoutubePlaylist.thumbnails.maxres.url : ""} /> */}
+                                <YouTube style={styles.wallpaperImage} videoId={videoId} />
                             </Box>
                             <Box width="100px" />
-                            <Box width="65%">
+                            <Box width="50%">
                                 {
                                     dataLoaded ? (
                                         <>
                                             {playlistItems.map(item => (
-                                                <Box display="flex" alignItems="center" padding="10px 25px" marginBottom="20px" height="80px" width="100%" bgcolor="secondary.main" borderRadius="15px">{playlistItems ? item.snippet.title : ""}</Box>
 
+                                                <Box display="flex" alignItems="center" padding="10px 25px" marginBottom="20px" height="80px" width="100%" bgcolor="secondary.main" borderRadius="15px">
+                                                    <Button variant="text" onClick={() => handleVideoChange(item.snippet.resourceId.videoId)}>
+                                                        {playlistItems ? item.snippet.title : ""}
+                                                    </Button>
+
+                                                </Box>
                                                 // <div key={item.id} className="playlist-item">
                                                 //     <h2>{item.snippet.title}</h2>
                                                 //     <img src={item.snippet.thumbnails.medium.url} alt={item.snippet.title} />

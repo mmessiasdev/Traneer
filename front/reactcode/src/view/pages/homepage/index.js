@@ -38,7 +38,7 @@ const HomePage = () => {
         setInitialVideo(initialVideoResponse.data.data);
 
         // Definindo o valor de playlistId após receber a resposta da API
-        const playlistId = initialVideoResponse.data.data.attributes.playlistid;
+        const playlistId = await initialVideoResponse.data.data.attributes.playlistid;
 
         const youtubePlaylistResponse = await axios.get(`https://www.googleapis.com/youtube/v3/playlists?part=snippet&id=${playlistId}&key=${process.env.REACT_APP_YOUTUBEKEY}`, {
           headers: {
