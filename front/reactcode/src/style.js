@@ -17,6 +17,10 @@ export default createGlobalStyle`
     div{
         overflow-x: hidden;
     }
+    a {
+        text-decoration: none; /* Remove o sublinhado */
+        color: inherit; /* Usa a cor padrão do elemento pai */
+      }
 
 
 

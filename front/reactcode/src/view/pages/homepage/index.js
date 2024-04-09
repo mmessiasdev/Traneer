@@ -15,11 +15,15 @@ const HomePage = () => {
 
   const [corporation, setCorporation] = useState(null);
   const [initialVideo, setInitialVideo] = useState(null);
-  const [initialYoutubePlaylist, setInitialYoutubePlaylist] = useState(null);
   const [dataLoaded, setDataLoaded] = useState(false); // Estado para controlar se os dados foram carregados
+  const [courses, setCourses] = useState(null);
+
+
+
+
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchBanner = async () => {
       try {
         const corporationResponse = await axios.get(`${process.env.REACT_APP_BASEURL}/api/corporations/1?populate=*`, {
           headers: {
@@ -28,7 +32,6 @@ const HomePage = () => {
           }
         });
         setCorporation(corporationResponse.data);
-
         const initialVideoResponse = await axios.get(`${process.env.REACT_APP_BASEURL}/api/courses/2?populate=*`, {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -36,28 +39,37 @@ const HomePage = () => {
           }
         });
         setInitialVideo(initialVideoResponse.data.data);
-
-        // Definindo o valor de playlistId após receber a resposta da API
-        const playlistId = await initialVideoResponse.data.data.attributes.playlistid;
-
-        const youtubePlaylistResponse = await axios.get(`https://www.googleapis.com/youtube/v3/playlists?part=snippet&id=${playlistId}&key=${process.env.REACT_APP_YOUTUBEKEY}`, {
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        });
-        setInitialYoutubePlaylist(youtubePlaylistResponse.data.items[0].snippet);
-        
         setDataLoaded(true); // Marcar que os dados foram carregados com sucesso
       } catch (error) {
         console.error('Erro ao buscar dados da API:', error);
       }
     };
 
-    fetchData();
-  }, [token]); 
+    fetchBanner();
+  }, [token]);
 
+  useEffect(() => {
 
+    const fetchCourses = async () => {
+      try {
+        const coursesResponse = await axios.get(`${process.env.REACT_APP_BASEURL}/api/courses?populate=*`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        });
+        setCourses(coursesResponse.data.data);
 
+      } catch (error) {
+        console.error('Erro ao buscar dados da API:', error);
+      }
+    };
+
+    fetchCourses();
+
+  }, [token]);
+
+  console.log(courses);
 
 
   const styles = {
@@ -80,7 +92,7 @@ const HomePage = () => {
             <div>
               <img style={styles.wallpaperImage} src={corporation.data.attributes.banner.bannerurl} alt={corporation.data.attributes.banner.bannertitle} />
               <Box sx={{ width: "100%", padding: { md: "100px 150px", xs: "100px 10px" } }}>
-                <Banner linkto={initialVideo.id} bannertitle={corporation.data.attributes.banner.bannertitle} bannerdesc={corporation.data.attributes.banner.bannerdesc} videotitle={initialYoutubePlaylist ? initialYoutubePlaylist.title : ""} thumburl={initialYoutubePlaylist ? initialYoutubePlaylist.thumbnails.maxres.url : ""} />
+                <Banner videotitle={initialVideo.attributes.title} thumburl={initialVideo.attributes.thumb} linkto={initialVideo.id} bannertitle={corporation.data.attributes.banner.bannertitle} bannerdesc={corporation.data.attributes.banner.bannerdesc} />
               </Box>
             </div>
           ) : (
@@ -93,11 +105,16 @@ const HomePage = () => {
           <Categories />
           <DefaultTitle text="Treinamentos Essenciais" />
           <Grid container sx={{ justifyContent: { lg: "start", xs: "center" } }}>
-            <ThumbCard />
-            <ThumbCard />
-            <ThumbCard />
-            <ThumbCard />
-            <ThumbCard />
+            {
+              courses ? (
+                <>
+                  {courses.map(item => (
+                    <ThumbCard linkto={item.id} thumburl={courses ? item.attributes.thumb : ""} />
+                  ))}
+                </>
+              ) : <div></div>
+            }
+
           </Grid>
         </Box>
         <Footer />

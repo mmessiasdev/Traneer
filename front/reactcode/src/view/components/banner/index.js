@@ -12,7 +12,7 @@ const Banner = ({bannerdesc, bannertitle, videotitle, thumburl, linkto}) => {
                 </Box>
                 <ThumbCard title={videotitle} thumburl={thumburl} linkto={linkto}/>
         </Stack>
-    </>
+    </> 
 }
 
 export default Banner;
