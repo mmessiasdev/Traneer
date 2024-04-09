@@ -25,7 +25,7 @@ function RoutesPage() {
                     </Routes>
                     <AuthPrivate path="/home" component={<HomePage />}/>
                     <AuthPrivate path="/profile" component={<Profile/>} />
-                    <AuthPrivate path="/courses/:id" component={<Course/>} />"
+                    <AuthPrivate path="/courses/:id" component={<Course/>} />
 
                 </Router>
 

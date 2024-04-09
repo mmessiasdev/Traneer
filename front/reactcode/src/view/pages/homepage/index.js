@@ -13,15 +13,10 @@ const HomePage = () => {
 
   const token = localStorage.getItem('authToken');
 
-
-
   const [corporation, setCorporation] = useState(null);
   const [initialVideo, setInitialVideo] = useState(null);
   const [initialYoutubePlaylist, setInitialYoutubePlaylist] = useState(null);
   const [dataLoaded, setDataLoaded] = useState(false); // Estado para controlar se os dados foram carregados
-
-
-
 
   useEffect(() => {
     const fetchData = async () => {
