@@ -7,6 +7,10 @@ import ThumbCard from "../../components/thumbcard";
 import DefaultTitle from "../../components/title";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useParams } from 'react-router-dom';
+import Button from '@mui/material/Button';
+
+
 
 
 const HomePage = () => {
@@ -17,6 +21,8 @@ const HomePage = () => {
   const [initialVideo, setInitialVideo] = useState(null);
   const [dataLoaded, setDataLoaded] = useState(false); // Estado para controlar se os dados foram carregados
   const [courses, setCourses] = useState(null);
+
+  const { playlistid } = useParams();
 
 
 
