@@ -119,12 +119,12 @@ const HomePage = () => {
         <Box sx={{ padding: { md: "50px 150px", xs: "15px 10px" } }}>
           <DefaultTitle text="Categorias" />
           <Box height="50px" />
-          <Grid container spacing={3}>
+          <Grid container sx={{ justifyContent: { lg: "start", xs: "center" } }}>
             {
               categories ? (
                 <>
                   {categories.map(item => (
-                    <Categories title={categories ? item.attributes.name : ""} />
+                    <Categories linkto={item.id} title={categories ? item.attributes.name : ""} />
                   ))}
                 </>
               ) : <div></div>
@@ -140,7 +140,7 @@ const HomePage = () => {
                     <div>
                       {
                         item.attributes.thumb ? (
-                          <ThumbCard linkto={item.id} thumburl={courses ? item.attributes.thumb : ""} />
+                          <ThumbCard linkto={item.id} thumburl={courses ? item.attributes.thumb : ""} title={item.attributes.title}/>
 
                         ) : <></>
                       }

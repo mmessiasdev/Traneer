@@ -14,7 +14,6 @@ const ThumbCard = ({ title, thumburl, linkto }) => {
                 </Paper>
                 <Box sx={{ height: "15px" }} />
                 <Typography width={{ sm: "400px", xs: "250px" }} variant="h3">{title}</Typography>
-
             </Link>
         </Grid>
 

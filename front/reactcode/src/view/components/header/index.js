@@ -86,9 +86,9 @@ const ResponsiveHeader = () => {
                         spacing={2}
                     >
                         <Box sx={{ display: "flex", flexDirection: "column" }}>
+                            {/* <Button sx={{ textTransform: "capitalize" }} variant="text" color="background"><Typography variant="h3">Text</Typography></Button>
                             <Button sx={{ textTransform: "capitalize" }} variant="text" color="background"><Typography variant="h3">Text</Typography></Button>
-                            <Button sx={{ textTransform: "capitalize" }} variant="text" color="background"><Typography variant="h3">Text</Typography></Button>
-                            <Button sx={{ textTransform: "capitalize" }} variant="text" color="background"><Typography variant="h3">Text</Typography></Button>
+                            <Button sx={{ textTransform: "capitalize" }} variant="text" color="background"><Typography variant="h3">Text</Typography></Button> */}
                         </Box>
 
 
