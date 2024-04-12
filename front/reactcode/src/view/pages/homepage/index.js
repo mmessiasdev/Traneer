@@ -7,8 +7,9 @@ import ThumbCard from "../../components/thumbcard";
 import DefaultTitle from "../../components/title";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from 'react-router-dom';
-import Button from '@mui/material/Button';
+import CircularProgress from '@mui/material/CircularProgress';
+
+
 
 
 
@@ -21,11 +22,7 @@ const HomePage = () => {
   const [initialVideo, setInitialVideo] = useState(null);
   const [dataLoaded, setDataLoaded] = useState(false); // Estado para controlar se os dados foram carregados
   const [courses, setCourses] = useState(null);
-
-  const { playlistid } = useParams();
-
-
-
+  const [categories, setCategories] = useState(null);
 
 
   useEffect(() => {
@@ -55,7 +52,6 @@ const HomePage = () => {
   }, [token]);
 
   useEffect(() => {
-
     const fetchCourses = async () => {
       try {
         const coursesResponse = await axios.get(`${process.env.REACT_APP_BASEURL}/api/courses?populate=*`, {
@@ -70,12 +66,27 @@ const HomePage = () => {
         console.error('Erro ao buscar dados da API:', error);
       }
     };
-
     fetchCourses();
-
   }, [token]);
 
-  console.log(courses);
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const categoriesResponse = await axios.get(`${process.env.REACT_APP_BASEURL}/api/corporations/1?populate=*`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        });
+        const categoriesData = categoriesResponse.data.data.attributes.categories.data;
+        setCategories(categoriesData);
+      }
+      catch (error) {
+        console.error('Erro ao buscar dados da API:', error);
+      }
+    }
+    fetchCategories();
+  }, [token])
 
 
   const styles = {
@@ -102,20 +113,39 @@ const HomePage = () => {
               </Box>
             </div>
           ) : (
-            <Box sx={{ justifyContent: "center", display: "flex", width: "100%", padding: "100px 15px" }}> <p>Carregando...</p> </Box>
+            <Box sx={{ justifyContent: "center", alignItems: "center", display: "flex", width: "100%", height: "80vh", padding: "100px 15px" }}> <CircularProgress size={50} color="primary" /></Box>
           )}
         </div>
         <Box sx={{ padding: { md: "50px 150px", xs: "15px 10px" } }}>
           <DefaultTitle text="Categorias" />
           <Box height="50px" />
-          <Categories />
+          <Grid container spacing={3}>
+            {
+              categories ? (
+                <>
+                  {categories.map(item => (
+                    <Categories title={categories ? item.attributes.name : ""} />
+                  ))}
+                </>
+              ) : <div></div>
+            }
+
+          </Grid>
           <DefaultTitle text="Treinamentos Essenciais" />
           <Grid container sx={{ justifyContent: { lg: "start", xs: "center" } }}>
             {
               courses ? (
                 <>
                   {courses.map(item => (
-                    <ThumbCard linkto={item.id} thumburl={courses ? item.attributes.thumb : ""} />
+                    <div>
+                      {
+                        item.attributes.thumb ? (
+                          <ThumbCard linkto={item.id} thumburl={courses ? item.attributes.thumb : ""} />
+
+                        ) : <></>
+                      }
+
+                    </div>
                   ))}
                 </>
               ) : <div></div>

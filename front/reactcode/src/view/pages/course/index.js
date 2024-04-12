@@ -31,7 +31,7 @@ const Course = () => {
         height: '70%',
         width: '100%',
         playerVars: {
-            autoplay: 0,
+            autoplay: 1,
             controls: 1, // Remover controles do player
             showinfo: 1,
             modestbranding: 0,
