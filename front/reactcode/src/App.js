@@ -41,6 +41,7 @@ function App() {
         fontWeight: 'normal'
       },
       h3:{
+        textTransform: "capitalize",
         fontSize: 20,
         fontWeight: 'bold'
       }

@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -6,6 +6,9 @@ import Header from "../../components/header";
 import DefaultTitle from "../../components/title";
 import YouTube from 'react-youtube';
 import Button from '@mui/material/Button';
+import { useTheme } from '@mui/material/styles';
+import Footer from "../../components/footer";
+
 
 
 const Course = () => {
@@ -119,11 +122,12 @@ const Course = () => {
                                     dataLoaded ? (
                                         <>
                                             {playlistItems.map(item => (
-                                                <Box display="flex" alignItems="center" padding="10px 25px" marginBottom="20px" height="80px" width="100%" bgcolor="secondary.main" borderRadius="15px">
-                                                    <Button variant="text" onClick={() => handleVideoChange(item.snippet.resourceId.videoId)}>
-                                                        {playlistItems ? item.snippet.title : ""}
-                                                    </Button>
-                                                </Box>
+                                                <Button style={{ width: "100%", borderRadius: "15px" }} variant="text" onClick={() => handleVideoChange(item.snippet.resourceId.videoId)}>
+                                                    <Box color="background.dark" display="flex" alignItems="center" padding="10px 25px" height="80px" width="100%" bgcolor="secondary.main" borderRadius="15px">
+                                                        <Typography variant="h3"> {playlistItems ? item.snippet.title : ""} </Typography>
+                                                    </Box>
+
+                                                </Button>
                                                 // <div key={item.id} className="playlist-item">
                                                 //     <h2>{item.snippet.title}</h2>
                                                 //     <img src={item.snippet.thumbnails.medium.url} alt={item.snippet.title} />
@@ -137,6 +141,8 @@ const Course = () => {
                             </Box>
                         </Box>
                     </Box>
+                    <Footer />
+
                 </div>
 
             ) : (

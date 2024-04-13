@@ -4,6 +4,7 @@ import axios from "axios";
 import ThumbCard from "../../components/thumbcard";
 import { useParams } from "react-router-dom";
 import { Box } from "@mui/material";
+import Footer from "../../components/footer";
 
 
 
@@ -60,16 +61,27 @@ const CategoriePage = () => {
 
     return <>
 
-        <Box sx={{ padding: { md: "50px 150px", xs: "15px 10px" } }}>
-            {
-                categorie ? (
-                    <DefaultTitle text={categorie.attributes.name} />
-                ) : <div></div>
-            }
+        {
+            categorie ? (
+                <div>
+                    {
+                        categorie.attributes.banner ? (
+                            <Box height="300px" overflow="hidden" sx={{ opacity: "50%" }}>
+                                <img src={categorie.attributes.banner} />
+                            </Box>
 
-        </Box>
+                        ) : <></>
+                    }
+                    <Box sx={{ padding: { md: "0px 150px 50px 150px", xs: "15px 10px" } }}>
+
+                        <DefaultTitle text={categorie.attributes.name} />
+                    </Box>
 
 
+
+                </div>
+            ) : <div></div>
+        }
         <Box sx={{ padding: { md: "50px 150px", xs: "15px 10px" } }}>
             {
                 courses ? (
@@ -89,6 +101,7 @@ const CategoriePage = () => {
             }
 
         </Box>
+        <Footer/>
 
     </>
 }

@@ -43,9 +43,9 @@ const DesktopHeader = () => {
                 divider={<Divider orientation="vertical" flexItem />}
                 spacing={2}
             >
+                {/* <Button sx={{ textTransform: "capitalize" }} variant="text" color="background"><Typography variant="h3">Text</Typography></Button>
                 <Button sx={{ textTransform: "capitalize" }} variant="text" color="background"><Typography variant="h3">Text</Typography></Button>
-                <Button sx={{ textTransform: "capitalize" }} variant="text" color="background"><Typography variant="h3">Text</Typography></Button>
-                <Button sx={{ textTransform: "capitalize" }} variant="text" color="background"><Typography variant="h3">Text</Typography></Button>
+                <Button sx={{ textTransform: "capitalize" }} variant="text" color="background"><Typography variant="h3">Text</Typography></Button> */}
 
                 <Link to={"/profile"}>
                     <IconButton color="background">
