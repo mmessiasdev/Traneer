@@ -18,11 +18,13 @@ const HomePage = () => {
 
   const token = localStorage.getItem('authToken');
 
+
   const [corporation, setCorporation] = useState(null);
   const [initialVideo, setInitialVideo] = useState(null);
   const [dataLoaded, setDataLoaded] = useState(false); // Estado para controlar se os dados foram carregados
   const [courses, setCourses] = useState(null);
   const [categories, setCategories] = useState(null);
+
 
 
   useEffect(() => {
@@ -32,7 +34,7 @@ const HomePage = () => {
           headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json'
-          }
+          },
         });
         setCorporation(corporationResponse.data);
         const initialVideoResponse = await axios.get(`${process.env.REACT_APP_BASEURL}/api/courses/2?populate=*`, {
@@ -44,10 +46,9 @@ const HomePage = () => {
         setInitialVideo(initialVideoResponse.data.data);
         setDataLoaded(true); // Marcar que os dados foram carregados com sucesso
       } catch (error) {
-        console.error('Erro ao buscar dados da API:', error);
+        console.error('Erro ao buscar dados da API Corporation:', error);
       }
     };
-
     fetchBanner();
   }, [token]);
 
@@ -100,10 +101,19 @@ const HomePage = () => {
     }
   };
 
+
+  console.log(corporation);
+
+
+
   return (
     <>
       <div className="homePage">
-        <Header />
+        {
+          corporation ? (
+            <Header logo={corporation.data.attributes.logo} />
+          ) : <></>
+        }
         <div style={styles.paperContainer}>
           {dataLoaded ? (
             <div>
@@ -140,7 +150,7 @@ const HomePage = () => {
                     <div>
                       {
                         item.attributes.thumb ? (
-                          <ThumbCard linkto={item.id} thumburl={courses ? item.attributes.thumb : ""} title={item.attributes.title}/>
+                          <ThumbCard linkto={item.id} thumburl={courses ? item.attributes.thumb : ""} title={item.attributes.title} />
 
                         ) : <></>
                       }

@@ -3,7 +3,7 @@ import { Box, Button, Divider, IconButton, Stack, Typography } from "@mui/materi
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({logo}) => {
 
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -23,19 +23,19 @@ const Header = () => {
 
     return (
         <>
-            {windowWidth < 900 ? <ResponsiveHeader /> : <DesktopHeader />}
+            {windowWidth < 900 ? <ResponsiveHeader logo={logo} /> : <DesktopHeader logo={logo} />}
 
         </>
     )
 }
 
 
-const DesktopHeader = () => {
+const DesktopHeader = ({logo}) => {
     return <>
         <Box sx={{ zIndex: "10", width: "100%", bgcolor: "primary.main", padding: { md: "15px 150px", sm: "15px 30px" }, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
             <Link to={"/home"}>
                 <Box sx={{ height: "55px", display: "flex" }}>
-                    <img src="https://connectba.com.br/core/views/860ad119c2/assets/img/logo.png" />
+                    <img src={logo} />
                 </Box>
             </Link>
             <Stack
@@ -58,7 +58,7 @@ const DesktopHeader = () => {
     </>
 }
 
-const ResponsiveHeader = () => {
+const ResponsiveHeader = ({logo}) => {
     const [click, setClick] = useState(false);
 
 
@@ -70,7 +70,7 @@ const ResponsiveHeader = () => {
         <div>
             <Box sx={{ width: "100%", bgcolor: "primary.main", padding: "15px 15px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                 <Box sx={{ height: "55px", display: "flex" }}>
-                    <img src="https://connectba.com.br/core/views/860ad119c2/assets/img/logo.png" />
+                    <img src={logo}/>
                 </Box>
                 <IconButton onClick={showMenu} size="large" type="submit" color="background">
                     <MenuOutlined />
