@@ -6,7 +6,6 @@ import Header from "../../components/header";
 import DefaultTitle from "../../components/title";
 import YouTube from 'react-youtube';
 import Button from '@mui/material/Button';
-import { useTheme } from '@mui/material/styles';
 import Footer from "../../components/footer";
 
 
@@ -24,14 +23,13 @@ const Course = () => {
     const styles = {
         wallpaperImage: {
             objectFit: "contain",
-            width: "100%",
-            height: "700px"
+            width: "100%"
 
         }
     };
 
     const opts = {
-        height: '70%',
+        height: '500px',
         width: '100%',
         playerVars: {
             autoplay: 1,
@@ -71,6 +69,7 @@ const Course = () => {
 
 
                 setInitialVideo(initialVideoResponse.data.data);
+
                 setInitialYoutubePlaylist(youtubePlaylistResponse.data.items[0].snippet);
                 setPlaylistItems(playlistItensResponse.data.items);
                 setDataLoaded(true);
@@ -112,9 +111,11 @@ const Course = () => {
                     <Box sx={{ width: "100%", padding: { md: "0px 150px", xs: "0px 10px" } }}>
                         <DefaultTitle text={initialVideo.attributes.title} />
                         <Box display="flex" flexDirection="flex" width="100%" marginTop="50px">
-                            <Box display="flex" width="100%" height="500px" alignItems="start" justifyContent="start" overflow="hidden">
-                                {/* <img style={styles.wallpaperImage} src={initialYoutubePlaylist ? initialYoutubePlaylist.thumbnails.maxres.url : ""} /> */}
-                                <YouTube opts={opts} style={styles.wallpaperImage} videoId={videoId} />
+                            <Box display="flex" width="100%" alignItems="start" justifyContent="start" overflow="hidden">
+                                {
+                                    videoId ? <Box width="100%" > <YouTube opts={opts} videoId={videoId} />
+                                        <Box marginTop="25px"> <Typography variant="h4">{initialYoutubePlaylist.description}</Typography></Box></Box> : <img style={styles.wallpaperImage} src={initialYoutubePlaylist ? initialYoutubePlaylist.thumbnails.maxres.url : ""} />
+                                }
                             </Box>
                             <Box width="100px" />
                             <Box width="50%">

@@ -1,7 +1,7 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import RoutesPage from './controller/routes/routes';
 
-function App() { 
+function App() {
 
   //   0
   // sm 600 
@@ -32,20 +32,25 @@ function App() {
     },
     typography: {
       fontFamily: "Montserrat",
-      h1:{
+      h1: {
         fontSize: 48,
         fontWeight: 'normal'
       },
-      h2:{
+      h2: {
         fontSize: 32,
         fontWeight: 'normal'
       },
-      h3:{
+      h3: {
         textTransform: "capitalize",
         fontSize: 20,
         fontWeight: 'bold'
+      },  
+      h4: {
+        textTransform: "capitalize",
+        fontSize: 15,
+        fontWeight: 'normal'
       }
-      
+
 
     }
   })
