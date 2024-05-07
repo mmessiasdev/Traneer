@@ -24,22 +24,14 @@
       "target": "api::corporation.corporation",
       "inversedBy": "categories"
     },
-    "banner": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "courses": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::course.course",
       "mappedBy": "categories"
+    },
+    "banner": {
+      "type": "string"
     }
   }
 }

@@ -37,7 +37,7 @@ const HomePage = () => {
           },
         });
         setCorporation(corporationResponse.data);
-        const initialVideoResponse = await axios.get(`${process.env.REACT_APP_BASEURL}/api/courses/2?populate=*`, {
+        const initialVideoResponse = await axios.get(`${process.env.REACT_APP_BASEURL}/api/courses/1?populate=*`, {
           headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json'

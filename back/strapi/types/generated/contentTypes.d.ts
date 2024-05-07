@@ -807,12 +807,12 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       'manyToMany',
       'api::corporation.corporation'
     >;
-    banner: Attribute.Media;
     courses: Attribute.Relation<
       'api::category.category',
       'manyToMany',
       'api::course.course'
     >;
+    banner: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -844,7 +844,6 @@ export interface ApiCorporationCorporation extends Schema.CollectionType {
   attributes: {
     name: Attribute.String;
     desc: Attribute.Text;
-    logo: Attribute.Media;
     profiles: Attribute.Relation<
       'api::corporation.corporation',
       'oneToMany',
@@ -861,6 +860,7 @@ export interface ApiCorporationCorporation extends Schema.CollectionType {
       'api::course.course'
     >;
     banner: Attribute.Component<'shared.banner'>;
+    logo: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
