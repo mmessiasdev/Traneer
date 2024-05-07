@@ -1,70 +1,112 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div>
+<img src="https://github.com/mmessiasdev/ImagesDeploy/assets/78608382/b59f4811-809a-4cde-baa4-882c8efa44db" height=65>
+</div>
 
-## Available Scripts
+# Traneer
 
-In the project directory, you can run:
+### Helping companies train people.
 
-### `npm start`
+<br/>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Programmed by:
 
-### `npm test`
+<img src="https://avatars.githubusercontent.com/u/78608382?s=400&u=d5e5ae4607ca9a1589bbf68dd8d0ecac5d9e6945&v=4" width=115><br><sub>M. Messias</sub>
+<br/>
+<div>
+ <a href="https://www.linkedin.com/in/mmessiasdev/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/linkedin-20232A?style=for-the-badge&logo=linkedin" alt="Linkedin"></a>
+  <a href="https://www.linkedin.com/in/mmessiasdev/" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Instagram-20232A?style=for-the-badge&logo=instagram" alt="Instagram"></a>
+  <a href="http://api.whatsapp.com/send?phone=5577991057040" target="_blank"><img src="https://img.shields.io/badge/WhatsApp-20232A?style=for-the-badge&logo=whatsapp"></a>
+  <a href="https://www.youtube.com/channel/UCHSrdW4QVmr-CjVW3KP2FAw" target="_blank"><img src="https://img.shields.io/badge/YouTube-20232A?style=for-the-badge&logo=youtube"></a>
+</div>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br/>
 
-### `npm run build`
+## 📚 Documentation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<div>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+</div>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<br/>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📝 Tasks Version 1.0
 
-## Learn More
+## Front end
+<div>
+<img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&color=blue&logoColor=white"> 
+<img src="https://img.shields.io/badge/TypeScript-20232A?style=flat-square&logo=typescript&color=blue&logoColor=white"> 
+<img src="https://img.shields.io/badge/JavaScript-20232A?style=flat-square&logo=JavaScript&color=blue&logoColor=white"> 
+<BR/>
+<img src="https://img.shields.io/badge/Style Components-20232A?style=flat-square&color=blue"> 
+<img src="https://img.shields.io/badge/Hooks-20232A?style=flat-square&color=blue"> 
+<img src="https://img.shields.io/badge/Redux-20232A?style=flat-square&color=blue"> 
+<img src="https://img.shields.io/badge/.Env-20232A?style=flat-square&color=blue"> 
+<img src="https://img.shields.io/badge/P.O.O-20232A?style=flat-square&color=blue"> 
+<img src="https://img.shields.io/badge/CRUD-20232A?style=flat-square&color=blue"> 
+<img src="https://img.shields.io/badge/Secure Storage-20232A?style=flat-square&color=blue"> 
+<img src="https://img.shields.io/badge/Light/Dark Themes-20232A?style=flat-square&color=blue"> 
+<img src="https://img.shields.io/badge/Aos-20232A?style=flat-square&color=blue"> 
+<img src="https://img.shields.io/badge/Restfull API-20232A?style=flat-square&color=blue"> 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<div/>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### React
 
-### Code Splitting
+#### Create JavaScript structure on the application✅
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### To study best tecnologies for better optimization and beauty design of the website. ✅
 
-### Analyzing the Bundle Size
+#### Implement backend project in frontend ✅
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### P.O.O improve. ✅
 
-### Making a Progressive Web App
+#### Clean Code website. ✅
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+#### Replicate Figma intended components for the style-components end MUI. ✅
 
-### Advanced Configuration
+####  To correct Bugs and bad optimizations.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### TypeScript System
 
-### Deployment
+#### Optimize system
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+####  Responsive all site
 
-### `npm run build` fails to minify
+#### Animate all site 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### Implement TypeScript componentization, botstrap and MUI ✅
+
+####  Perform test. 
+<br/>
+
+## Styles
+<img src="https://img.shields.io/badge/Figma-20232A?style=flat-square&logo=figma&color=blue&logoColor=white"> 
+
+
+####  Figma.  [Link](https://www.figma.com/file/4GCMb6p0RNXw3PboAGGERK/Untitled?type=design&node-id=71-39&mode=design&t=EV7qEiwXLQVtoDix-0) ✅
+
+<br/>
+
+## Back end
+<img src="https://img.shields.io/badge/Strapi-20232A?style=flat-square&logo=strapi&color=blue&logoColor=white">
+<img src="https://img.shields.io/badge/Youtube API-20232A?style=flat-square&logo=youtube&color=blue&logoColor=white">
+<img src="https://img.shields.io/badge/Postgress-20232A?style=flat-square&logo=Oracle&color=blue&logoColor=white">
+
+
+#### Deploy site ✅
+#### Create Strapi System ✅
+#### Constructor api texts in the all site ✅
+#### Implement You Tube API in the project ✅
+#### Fixed IP in Virtual Machine ✅
+
+
+<br/> 
+<br/> 
+
+###### **Copyright M. Messias © 2023**
