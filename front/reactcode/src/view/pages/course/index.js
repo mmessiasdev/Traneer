@@ -7,6 +7,8 @@ import DefaultTitle from "../../components/title";
 import YouTube from 'react-youtube';
 import Button from '@mui/material/Button';
 import Footer from "../../components/footer";
+import Logo from '../../assets/logo.png';
+
 
 
 
@@ -50,7 +52,9 @@ const Course = () => {
                 const initialVideoResponse = await axios.get(`${process.env.REACT_APP_BASEURL}/api/courses/${id}?populate=*`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'ngrok-skip-browser-warning': true
+
                     }
                 });
 
@@ -59,6 +63,7 @@ const Course = () => {
                 const youtubePlaylistResponse = await axios.get(`https://www.googleapis.com/youtube/v3/playlists?part=snippet&id=${playlistId}&key=${process.env.REACT_APP_YOUTUBEKEY}`, {
                     headers: {
                         'Content-Type': 'application/json'
+
                     }
                 });
                 const playlistItensResponse = await axios.get(`https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${playlistId}&key=${process.env.REACT_APP_YOUTUBEKEY}`, {
@@ -103,7 +108,7 @@ const Course = () => {
 
 
     return <div>
-        <Header />
+        <Header logo={"https://connectba.com.br/core/views/860ad119c2/assets/img/logo.png"} />
 
         {
             initialVideo ? (

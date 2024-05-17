@@ -1,9 +1,13 @@
 import { jwtDecode } from "jwt-decode";
-import { BASELOGIN } from "../../config";
 import axios from "axios";
 
 function authenticate(credentials) {
-    return axios.post(BASELOGIN, credentials, console.log(credentials)).then(res => res.data).then(data => {
+
+    const BASEURL = process.env.REACT_APP_BASEURL;
+    const BASELOGIN = process.env.REACT_APP_BASELOGIN;
+
+
+    return axios.post(BASEURL + BASELOGIN, credentials, console.log(credentials)).then(res => res.data).then(data => {
         window.localStorage.setItem("authToken", data.jwt)
         window.localStorage.setItem("username", data.user.username)
         axios.defaults.headers["Authorization"] = "Bearer" + data.jwt

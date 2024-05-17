@@ -18,7 +18,9 @@ const Profile = () => {
                 const coursesResponse = await axios.get(`${process.env.REACT_APP_BASEURL}/api/profile/me?populate=*`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'ngrok-skip-browser-warning':true
+
                     }
                 });
                 setProfile(coursesResponse.data);

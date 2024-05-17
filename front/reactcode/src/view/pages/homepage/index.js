@@ -8,8 +8,7 @@ import DefaultTitle from "../../components/title";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import CircularProgress from '@mui/material/CircularProgress';
-
-
+import Logo from '../../assets/logo.png';
 
 
 
@@ -33,14 +32,19 @@ const HomePage = () => {
         const corporationResponse = await axios.get(`${process.env.REACT_APP_BASEURL}/api/corporations/1?populate=*`, {
           headers: {
             Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'ngrok-skip-browser-warning':true
           },
         });
         setCorporation(corporationResponse.data);
         const initialVideoResponse = await axios.get(`${process.env.REACT_APP_BASEURL}/api/courses/1?populate=*`, {
           headers: {
             Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'ngrok-skip-browser-warning':true
+
+
+
           }
         });
         setInitialVideo(initialVideoResponse.data.data);
@@ -58,7 +62,9 @@ const HomePage = () => {
         const coursesResponse = await axios.get(`${process.env.REACT_APP_BASEURL}/api/courses?populate=*`, {
           headers: {
             Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'ngrok-skip-browser-warning':true
+
           }
         });
         setCourses(coursesResponse.data.data);
@@ -76,7 +82,8 @@ const HomePage = () => {
         const categoriesResponse = await axios.get(`${process.env.REACT_APP_BASEURL}/api/corporations/1?populate=*`, {
           headers: {
             Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'ngrok-skip-browser-warning':true
           }
         });
         const categoriesData = categoriesResponse.data.data.attributes.categories.data;
@@ -111,7 +118,7 @@ const HomePage = () => {
       <div className="homePage">
         {
           corporation ? (
-            <Header logo={corporation.data.attributes.logo} />
+            <Header logo={"https://connectba.com.br/core/views/860ad119c2/assets/img/logo.png"} />
           ) : <></>
         }
         <div style={styles.paperContainer}>
