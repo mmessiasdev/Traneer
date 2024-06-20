@@ -50,20 +50,10 @@
 
 ## 📚 Documentation
 
+<div>
 <img src="https://i.imgur.com/sSXYrzT.jpg" width=200>
 <img src="https://i.imgur.com/oslesRn.jpg" width=200>
 <img src="https://i.imgur.com/dI6JRBD.jpg" width=200>
-
-  
-
-<div>
-
-  
-
-  
-
-  
-
 </div>
 
   
